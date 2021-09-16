@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.genz.connect">
+    package="com.intrachat.connect">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".GenZConnectApplication"
+        android:name="com.intrachat.connect.GenZConnectApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.GenZConnect.NoActionBar"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".MainActivity"
+            android:name="com.intrachat.connect.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">

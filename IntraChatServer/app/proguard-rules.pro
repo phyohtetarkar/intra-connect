@@ -23,4 +23,4 @@
 -keepnames class androidx.fragment.app.FragmentContainerView
 -keepnames class androidx.navigation.fragment.NavHostFragment
 
--keep class !com.genz.server.**, ** { *; }
+-keep class !com.intrachat.server.**, ** { *; }

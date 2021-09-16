@@ -13,7 +13,7 @@
 
         <variable
             name="msg"
-            type="com.genz.connect.client.Message" />
+            type="com.intrachat.connect.client.Message" />
     </data>
 
     <LinearLayout
