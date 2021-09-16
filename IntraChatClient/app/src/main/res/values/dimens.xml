@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chat_bubble_radius">10dp</dimen>
+    <dimen name="space_between_bubble">10dp</dimen>
+    <dimen name="image_radius">5dp</dimen>
+</resources>

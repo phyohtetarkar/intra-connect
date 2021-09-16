@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="LayoutMessageReceiveBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="heading"
+            type="Boolean" />
+
+        <variable
+            name="msg"
+            type="com.genz.connect.client.Message" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="64dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_between_bubble"
+            android:text='@{msg.sender + ", " + msg.time}'
+            android:visibility="@{heading ? View.VISIBLE : View.GONE}"
+            tools:text="User, March 01 10:11 AM" />
+
+        <!--        <FrameLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--            <com.google.android.material.card.MaterialCardView-->
+        <!--                android:id="@+id/viewContentText"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="2dp"-->
+        <!--                app:cardElevation="0dp"-->
+        <!--                app:cardBackgroundColor="@color/colorMessageReceive"-->
+        <!--                app:contentPaddingBottom="8dp"-->
+        <!--                app:contentPaddingLeft="14dp"-->
+        <!--                app:contentPaddingRight="14dp"-->
+        <!--                app:contentPaddingTop="8dp"-->
+        <!--                app:shapeAppearance="@style/ShapeAppearanceOverlay.MessageReceive.MaterialCardView.Rounded">-->
+
+        <!--                <com.google.android.material.textview.MaterialTextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:textColor="?attr/colorOnBackground"-->
+        <!--                    android:textSize="16sp"-->
+        <!--                    android:text="@{msg.content}"-->
+        <!--                    tools:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups." />-->
+
+        <!--            </com.google.android.material.card.MaterialCardView>-->
+
+        <!--            <com.google.android.material.imageview.ShapeableImageView-->
+        <!--                android:id="@+id/viewContentImage"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginEnd="16dp"-->
+        <!--                android:layout_marginTop="4dp"-->
+        <!--                app:shapeAppearance="@style/ShapeAppearanceOverlay.ImageView.Rounded"-->
+        <!--                app:strokeWidth="1dp"-->
+        <!--                app:strokeColor="?attr/colorControlHighlight"-->
+        <!--                android:visibility="gone"/>-->
+
+        <!--        </FrameLayout>-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <FrameLayout
+                android:id="@+id/layoutReply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{msg.replyId != null ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{msg.replyBinary != true ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="?attr/colorControlHighlight"
+                    app:cardElevation="0dp"
+                    app:contentPaddingBottom="20dp"
+                    app:contentPaddingLeft="14dp"
+                    app:contentPaddingRight="14dp"
+                    app:contentPaddingTop="8dp"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.Message.MaterialCardView.Rounded"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{msg.replyContent}"
+                        android:textColor="@android:color/tertiary_text_dark"
+                        android:textSize="16sp"
+                        tools:text="Lorem ipsum " />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:visibility="@{msg.replyBinary == true ? View.VISIBLE : View.GONE}"
+                    app:reply="@{msg}"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.ImageView.Rounded"
+                    app:strokeColor="?attr/colorControlHighlight"
+                    app:strokeWidth="1dp"
+                    tools:visibility="gone" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="@{msg.replyId != null ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/layoutReply"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/layoutContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/viewContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{msg.binary != true ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="?attr/colorSecondary"
+                    app:cardElevation="0dp"
+                    app:contentPaddingBottom="8dp"
+                    app:contentPaddingLeft="14dp"
+                    app:contentPaddingRight="14dp"
+                    app:contentPaddingTop="8dp"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.MessageReceive.MaterialCardView.Rounded"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{msg.content}"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textSize="16sp"
+                        tools:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups." />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/viewContentImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="?attr/colorSurface"
+                    android:visibility="@{msg.binary == true ? View.VISIBLE : View.GONE}"
+                    app:image="@{msg}"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.ImageView.Rounded"
+                    app:strokeColor="?attr/colorControlHighlight"
+                    app:strokeWidth="1dp"
+                    tools:visibility="gone" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

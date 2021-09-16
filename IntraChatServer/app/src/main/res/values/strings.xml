@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">IntraChat Server</string>
+    <string name="your_name">Your Name</string>
+    <string name="server_address">Server Address</string>
+    <string name="cancel">Cancel</string>
+    <string name="connect">Connect</string>
+    <string name="type_here">Type here…</string>
+    <string name="start_server">Start Server</string>
+    <string name="stop_server">Stop Server</string>
+    <string name="connect_server">Connect Server</string>
+    <string name="initializing">Initializing</string>
+    <string name="ip_address_args">IP Address: %s</string>
+    <string name="typing">Typing…</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="enter_chat">Enter chat</string>
+    <string name="version">Version</string>
+    <string name="version_name_args">(%s)</string>
+</resources>

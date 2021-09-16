@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ChatFragmentBinding">
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                tools:listitem="@layout/layout_message_receive">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTyping"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/typing"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:id="@+id/layoutReplyInfo"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:visibility="gone"-->
+            <!--                tools:visibility="visible">-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/view"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="?android:attr/listDivider"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <com.google.android.material.textview.MaterialTextView-->
+            <!--                    android:id="@+id/textViewReplyTo"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="16dp"-->
+            <!--                    android:layout_marginTop="8dp"-->
+            <!--                    android:layout_marginEnd="16dp"-->
+            <!--                    android:text="@string/replying_to"-->
+            <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/btnCloseReply"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/view" />-->
+
+            <!--                <com.google.android.material.textview.MaterialTextView-->
+            <!--                    android:id="@+id/textViewReply"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="2dp"-->
+            <!--                    android:layout_marginBottom="8dp"-->
+            <!--                    android:ellipsize="end"-->
+            <!--                    android:lines="1"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="@+id/textViewReplyTo"-->
+            <!--                    app:layout_constraintStart_toStartOf="@+id/textViewReplyTo"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/textViewReplyTo"-->
+            <!--                    tools:text="bla bla bla..." />-->
+
+            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
+            <!--                    android:id="@+id/btnCloseReply"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="24dp"-->
+            <!--                    android:layout_marginTop="8dp"-->
+            <!--                    android:layout_marginEnd="16dp"-->
+            <!--                    android:layout_marginBottom="8dp"-->
+            <!--                    android:adjustViewBounds="true"-->
+            <!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
+            <!--                    android:scaleType="fitXY"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/view"-->
+            <!--                    app:srcCompat="@drawable/ic_baseline_highlight_off_24" />-->
+
+
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--            <View-->
+            <!--                android:id="@+id/divider"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="?android:attr/listDivider" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:gravity="center_vertical"-->
+            <!--                android:paddingTop="8dp"-->
+            <!--                android:paddingBottom="8dp">-->
+
+            <!--                <androidx.appcompat.widget.AppCompatEditText-->
+            <!--                    android:id="@+id/edMessage"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="16dp"-->
+            <!--                    android:layout_marginEnd="16dp"-->
+            <!--                    android:layout_weight="1"-->
+            <!--                    android:background="@drawable/ic_filled_edit_text_background"-->
+            <!--                    android:hint="@string/type_here"-->
+            <!--                    android:inputType="textMultiLine"-->
+            <!--                    android:paddingStart="12dp"-->
+            <!--                    android:paddingTop="8dp"-->
+            <!--                    android:paddingEnd="12dp"-->
+            <!--                    android:paddingBottom="8dp" />-->
+
+            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
+            <!--                    android:id="@+id/btnImage"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="32dp"-->
+            <!--                    android:layout_marginEnd="16dp"-->
+            <!--                    android:adjustViewBounds="true"-->
+            <!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
+            <!--                    android:scaleType="fitXY"-->
+            <!--                    android:tint="?attr/colorPrimary"-->
+            <!--                    app:srcCompat="@drawable/ic_baseline_image_24" />-->
+
+            <!--                <androidx.appcompat.widget.AppCompatImageButton-->
+            <!--                    android:id="@+id/btnSend"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="32dp"-->
+            <!--                    android:layout_marginEnd="16dp"-->
+            <!--                    android:adjustViewBounds="true"-->
+            <!--                    android:background="?attr/selectableItemBackgroundBorderless"-->
+            <!--                    android:scaleType="fitXY"-->
+            <!--                    android:tint="?attr/colorPrimary"-->
+            <!--                    app:srcCompat="@drawable/ic_baseline_send_24" />-->
+
+            <!--            </LinearLayout>-->
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnScrollBottom"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="6dp"
+            android:visibility="gone"
+            app:cornerRadius="28dp"
+            app:icon="@drawable/ic_baseline_arrow_downward_24"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutReplyInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textViewReplyTo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/replying_to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/btnCloseReply"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textViewReply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="8dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewReplyTo"
+                    app:layout_constraintStart_toStartOf="@+id/textViewReplyTo"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewReplyTo"
+                    tools:text="bla bla bla..." />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnCloseReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:adjustViewBounds="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:srcCompat="@drawable/ic_baseline_highlight_off_24" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_filled_edit_text_background"
+                    android:hint="@string/type_here"
+                    android:inputType="textMultiLine"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:adjustViewBounds="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY"
+                    android:tint="?attr/colorPrimary"
+                    app:srcCompat="@drawable/ic_baseline_image_24" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:adjustViewBounds="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitXY"
+                    android:tint="?attr/colorPrimary"
+                    app:srcCompat="@drawable/ic_baseline_send_24" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLoading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#8B212121"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
