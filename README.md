@@ -1,2 +1,2 @@
-# intra-connect
-Communication helper android apps while internet nation-wide cutoff.
+# Intra Connect
+Communication helper android apps while nation-wide internet cutoff.
